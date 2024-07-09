@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Copy Link</h1>
+        <input type="text" id="link-input" value="http://localhost:8000/form/{{id}}" readonly>
+        <button onclick="copyLink()">Copy Link</button>
+    </div>
+
+    <script>
+        function copyLink() {
+            var linkInput = document.getElementById("link-input");
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(linkInput.value);
+            alert("Link copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Responses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .response-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .response-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .response-details {
+            margin-bottom: 10px;
+        }
+
+        .go-home-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .go-home-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Responses</h1>
+        {% for i in responses %}
+        <div class="response-container">
+            <div class="response-title">Response {{forloop.counter}}</div>
+            <div class="response-details">
+                <p><strong>Name:</strong> {{i.username}}</p>
+                <p><strong>Question:</strong> {{i.question}}</p>
+                <p><strong>Answer:</strong> {{i.answer}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <a href="/" class="go-home-btn">Go Home</a>
+    </div>
+</body>
+</html>
